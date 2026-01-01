@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Lab 3D - моделирование и печать на заказ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>Model Lab 3D</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#portfolio">Портфолио</a></li>
+                    <li><a href="#calculator">Калькулятор</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>3D Моделирование и Печать в Model Lab 3D</h1>
+                <p>Превращаем ваши идеи в реальные объекты с высочайшей детализацией и качеством</p>
+                <a href="#calculator" class="btn">Рассчитать стоимость</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/printer.jpg" alt="3D принтер Model Lab 3D" id="printer-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>3D Моделирование</h3>
+                    <p>Создание 3D-моделей по вашим чертежам, эскизам или описанию. Подготовка файлов для печати.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3>3D Печать</h3>
+                    <p>Печать на профессиональных 3D-принтерах. Различные материалы: PLA, ABS, PETG, нейлон.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Постобработка</h3>
+                    <p>Шлифовка, покраска, склейка деталей, нанесение покрытий для идеального внешнего вида.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Консультации</h3>
+                    <p>Помощь в выборе материала, технологии печати и постобработки для вашего проекта.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Портфолио -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Наши работы</h2>
+            <div class="portfolio-grid" id="portfolio-container">
+                <!-- Работы будут загружены через JavaScript -->
+                <div class="portfolio-loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Загрузка работ...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Калькулятор стоимости -->
+    <section id="calculator" class="calculator">
+        <div class="container">
+            <h2 class="section-title">Калькулятор стоимости</h2>
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="material">Материал:</label>
+                        <select id="material">
+                            <option value="pla">PLA (стандартный)</option>
+                            <option value="abs">ABS (прочный)</option>
+                            <option value="petg">PETG (гибкий)</option>
+                            <option value="nylon">Нейлон (профессиональный)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="volume">Объем модели (см³):</label>
+                        <input type="range" id="volume" min="1" max="1000" value="50">
+                        <div class="volume-display">
+                            <span id="volume-value">50</span> см³
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="complexity">Сложность модели:</label>
+                        <select id="complexity">
+                            <option value="simple">Простая (без поддержек)</option>
+                            <option value="medium">Средняя (требуются поддержки)</option>
+                            <option value="complex">Сложная (много поддержек, тонкие детали)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="postprocessing">Постобработка:</label>
+                        <select id="postprocessing">
+                            <option value="none">Без обработки</option>
+                            <option value="sanding">Шлифовка</option>
+                            <option value="painting">Покраска</option>
+                            <option value="coating">Покраска + покрытие</option>
+                        </select>
+                    </div>
+                    <button id="calculate-btn" class="btn">Рассчитать стоимость</button>
+                </div>
+                <div class="calculator-result">
+                    <h3>Итоговая стоимость:</h3>
+                    <div class="cost-display">
+                        <span id="cost">0</span> руб
+                    </div>
+                    <div class="details">
+                        <p><strong>Стоимость материалов:</strong> <span id="material-cost">0</span> руб</p>
+                        <p><strong>Наценка за сложность:</strong> <span id="complexity-cost">0</span> руб</p>
+                        <p><strong>Постобработка:</strong> <span id="postprocessing-cost">0</span> руб</p>
+                        <hr>
+                        <p><strong>Итого:</strong> <span id="total-cost">0</span> руб</p>
+                    </div>
+                    <p class="note">* Цена указана приблизительная. Для точного расчета отправьте нам модель.</p>
+                    <a href="#contact" class="btn btn-outline">Сделать заказ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            
+            <!-- Баннер для заказа -->
+            <div class="order-banner">
+                <div class="order-banner-content">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Для заказа пишите на почту</h3>
+                    <p class="email-link">
+                        <a href="mailto:smelov.mathews@yandex.ru">smelov.mathews@yandex.ru</a>
+                    </p>
+                    <p>Пришлите вашу 3D-модель или описание проекта, и мы рассчитаем точную стоимость</p>
+                    <div class="order-instructions">
+                        <h4>Как сделать заказ:</h4>
+                        <ol>
+                            <li>Рассчитайте примерную стоимость в калькуляторе</li>
+                            <li>Пришлите файл модели (STL, OBJ, 3MF) на почту</li>
+                            <li>Укажите желаемый материал и особенности</li>
+                            <li>Мы ответим в течение 2 часов с точным расчетом</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Свяжитесь с нами</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email для заказов</h4>
+                            <p><a href="mailto:smelov.mathews@yandex.ru" class="email">smelov.mathews@yandex.ru</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Режим работы</h4>
+                            <p>Ежедневно: 10:00 - 21:00</p>
+                            <p>Без перерывов и выходных</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <h4>Сроки выполнения</h4>
+                            <p>Моделирование: 1-3 дня</p>
+                            <p>Печать: от 1 дня в зависимости от объема</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Работаем онлайн</h4>
+                            <p>Принимаем заказы со всей России</p>
+                            <p>Отправка транспортными компаниями</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-placeholder">
+                    <div class="placeholder-content">
+                        <i class="fas fa-paper-plane"></i>
+                        <h3>Отправляйте заказы на почту</h3>
+                        <p>Для оформления заказа отправьте письмо с вашей моделью или описанием проекта на:</p>
+                        <p class="highlight-email">smelov.mathews@yandex.ru</p>
+                        <div class="file-types">
+                            <h4>Поддерживаемые форматы:</h4>
+                            <ul>
+                                <li><i class="fas fa-file"></i> STL</li>
+                                <li><i class="fas fa-file"></i> OBJ</li>
+                                <li><i class="fas fa-file"></i> 3MF</li>
+                                <li><i class="fas fa-file"></i> STEP</li>
+                                <li><i class="fas fa-file"></i> IGES</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-cube"></i>
+                    <span>Model Lab 3D</span>
+                </div>
+                <p>3D моделирование и печать на заказ. Качество, точность, скорость.</p>
+                <div class="contact-footer">
+                    <p><i class="fas fa-envelope"></i> 
+                        <a href="mailto:smelov.mathews@yandex.ru">smelov.mathews@yandex.ru</a>
+                    </p>
+                    <p><i class="fas fa-clock"></i> Ежедневно 10:00-21:00</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">© 2025 Model Lab 3D. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
